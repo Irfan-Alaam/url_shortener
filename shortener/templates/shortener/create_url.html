@@ -1,0 +1,26 @@
+{% extends 'shortener/base.html' %}
+
+{% block content %}
+<h2>Create a new Short URL</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="originalUrl" class="form-label">Original URL</label>
+        <input type="url" class="form-control" id="originalUrl" name="originalUrl" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Shorten URL</button>
+</form>
+{% if short_url %}
+<hr>
+<p>Short URL: <a href="/{{ short_url.shortKey }}/">{{ short_url.shortKey }}</a></p>
+    <div class="mt-4 alert alert-success">
+        <p>Short URL created successfully:</p>
+        <p>
+            <a href="{{ short_url.originalUrl }}" target="_blank">{{ short_url.originalUrl }}</a>
+            <br>
+            Short Key: <strong>{{ short_url.shortKey }}</strong>
+        </p>
+        <a href="{% url 'list-urls' %}" class="btn btn-success">Go to Home</a>
+    </div>
+{% endif %}
+{% endblock %}

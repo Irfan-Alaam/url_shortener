@@ -1,0 +1,39 @@
+{% extends 'shortener/base.html' %}
+
+{% block content %}
+<h2>My Short URLs</h2>
+<a href="{% url 'create-url' %}" class="btn btn-success mb-3">Create New URL</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Short Key</th>
+            <th>Original URL</th>
+            <th>Clicks</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for url in urls %}
+        <tr>
+            <td><a href="/{{ url.shortKey }}/">{{ url.shortKey }}</a></td>
+            <td>{{ url.originalUrl }}</td>
+            <td>{{ url.clickCount }}</td>
+            <td>{{ url.createdAt }}</td>
+            <td>
+                <form method="post" action="{% url 'delete-url' url.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+                <a href="{% url 'edit-url' url.id %}" class="btn btn-sm btn-warning">
+    Edit
+</a>
+
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">No URLs created yet.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
