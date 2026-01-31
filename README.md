@@ -18,11 +18,10 @@ git clone https://github.com/Irfan-Alaam/url_shortener.git
 
 2. Create a virtual environment and activate it:
 
-python -m venv .env
-# Windows
-.env\Scripts\activate
-# Linux/Mac
-source .env/bin/activate
+  To create: python -m venv .env
+  To activate:
+    Windows: .env\Scripts\activate
+    Mac: source .env/bin/activate
 
 3. Install dependencies:
 
