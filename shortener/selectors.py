@@ -1,11 +1,7 @@
 from django.shortcuts import get_object_or_404
 from .models import ShortURL
 
-
 def get_active_short_url(shortKey: str) -> ShortURL:
-    """
-    Fetch an active ShortURL by short_key or raise 404.
-    """
     return get_object_or_404(
         ShortURL,
         shortKey=shortKey,

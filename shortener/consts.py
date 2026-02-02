@@ -1,0 +1,2 @@
+#constants defined here
+base62Digits = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"

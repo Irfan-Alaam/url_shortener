@@ -1,20 +1,16 @@
-import string
-from django.db import models
 from django.db.models import F
 from .models import ShortURL
+from .consts import base62Digits
 
-BASE62_ALPHABET = string.digits + string.ascii_lowercase + string.ascii_uppercase
-def base62_encode(num: int) -> str:
-    if num == 0:
-        return BASE62_ALPHABET[0]
-
-    base = len(BASE62_ALPHABET)
-    encoded = []
-
-    while num > 0:
-        num, rem = divmod(num, base)
-        encoded.append(BASE62_ALPHABET[rem])
-
+def base62_encode(num:int)->str:
+    if num==0:
+        return base62Digits[0]
+    base=len(base62Digits)
+    encoded=[]
+    while num>0:
+        num,rem=divmod(num,base)
+        encoded.append(base62Digits[rem])
+    
     return ''.join(reversed(encoded))
 
 def generate_shortKey(short_url: ShortURL) -> str:
@@ -43,7 +39,7 @@ def create_short_url(*, user, originalUrl: str) -> ShortURL:
     return short_url
 
 
-def soft_delete_short_url(short_url: ShortURL) -> None:
+def delete_short_url(short_url: ShortURL) -> None:
     short_url.isActive = False
     short_url.save(update_fields=["isActive"])
 
