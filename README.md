@@ -44,3 +44,8 @@ A simple Django-based URL shortener with user authentication.
       6. Constraints prevent creating a short URL for a long URL that is already shortened for the same user<br>
       7. Success and error messages are displayed for all actions (create, edit, login, signup)<br>
       8. Each short URL tracks the number of times it has been clicked
+
+**Screenshots:**
+<img width="1920" height="1080" alt="Screenshot (542)" src="https://github.com/user-attachments/assets/18dab9a7-bef2-4801-9b71-67630c23c785" />
+<img width="1920" height="1080" alt="Screenshot (543)" src="https://github.com/user-attachments/assets/4e5f5e63-2d44-4461-9738-7280aa94b204" />
+
