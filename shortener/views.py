@@ -70,7 +70,7 @@ def create_url_view(request):
             messages.error(request, f"A short URL already exists for {originalUrl}")
         else:
             short_url = create_short_url(user=request.user, originalUrl=originalUrl)
-            messages.success(request, f"Short URL created successfully!: {short_url}")
+            messages.success(request, f"Short URL created successfully!")
 
     return render(request, 'shortener/create_url.html', {'short_url': short_url})
 
