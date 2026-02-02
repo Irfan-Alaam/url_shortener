@@ -34,7 +34,8 @@ A simple Django-based URL shortener with user authentication.
 
       http://127.0.0.1:8000/
 
-##Requirements achieved:
+**##Requirements achieved:**
+<br>
       1. User can signup using unique username and strong password, if not matched with the error is raised<br>
       2. User can login only using valid credentails<br>
       3. Only loggedin users can create short URLs<br>
